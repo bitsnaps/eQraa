@@ -1,81 +1,67 @@
+
 <?php
+use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use app\assets\AppAsset;
-use app\widgets\Alert;
-use yii\widgets\Breadcrumbs;
-use yii\bootstrap\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
+if(Yii::$app->language == 'fr') :
+	$this->registerCss('.sidebar .sidebar-menu .treeview-menu > li > a {
+		font-size: 13px;
+	}');
+endif;
 
-AppAsset::register($this);
-?>
-<?php $this->beginPage() ?>
-<!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" class="h-100">
-<head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <?php $this->registerCsrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
-<body class="d-flex flex-column h-100">
-<?php $this->beginBody() ?>
+if (Yii::$app->controller->action->id === 'login') {
+    echo $this->render(
+        'login-layout',
+        ['content' => $content]
+    );
+} else {
+    \app\assets_b\AppAsset::register($this);
+    $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/admin-lte';
 
-<header>
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'form-inline'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
     ?>
-</header>
+    <?php $this->beginPage() ?>
+    <!DOCTYPE html>
+    <html lang="<?= Yii::$app->language ?>">
+    <head>
+        <meta charset="<?= Yii::$app->charset ?>"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<main role="main" class="flex-shrink-0">
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
-</main>
+<!--        <meta name="Keywords" content="edusec,edusec4,rudra softech,open source development in ahmedabad, college management software,college management system,education management software,school management system,school management software">
+		<meta name="Description" content="Software development company for open source technology in Ahmedabad. Provide Enterprise solution and quality services.">
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:title" content="Rudra Softech - Provide Enterprise Solution | Development on open source technology | College Management Software | School Management Software" />
+		<meta property="og:description" content="Core functions like admissions, library management, transport management, students attendance in short entire range of university functions can be well performed by EduSec" />
+		<meta property="og:image" content="http://www.rudrasoftech.com/rudra.png">-->
 
-<footer class="footer mt-auto py-3 text-muted">
-    <div class="container">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="float-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+		<link rel="shortcut icon" href="<?php echo Yii::$app->request->baseUrl; ?>/images/icon.png" type="image/x-icon" />
+		<!-- Render this(ar-layout-css) file for supporting Arabic Language -->
+		<?= $this->render('ar-layout-css'); ?>
 
-<?php $this->endBody() ?>
-</body>
-</html>
-<?php $this->endPage() ?>
+        <?= Html::csrfMetaTags() ?>
+        <title><?= Html::encode($this->title) ?></title>
+        <?php $this->head() ?>
+    </head>
+    <body class="skin-black">
+    <?php $this->beginBody() ?>
+	<?= $this->render(
+	    'header.php',
+	    ['directoryAsset' => $directoryAsset]
+	) ?>
+
+      <div class="wrapper row-offcanvas row-offcanvas-left">
+
+        <?= $this->render('left.php', ['directoryAsset' => $directoryAsset]) ?>
+
+        <?= $this->render(
+            'content.php',
+            ['content' => $content, 'directoryAsset' => $directoryAsset]
+        ) ?>
+
+      </div>
+    <?php $this->endBody() ?>
+    </body>
+    </html>
+    <?php $this->endPage() ?>
+<?php } ?>

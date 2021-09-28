@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec4d68895856192b64cf87d91d1049ee",
+    "content-hash": "5e3cd68312b03a9abed4daba50bbf4dc",
     "packages": [
         {
             "name": "2amigos/yii2-switch-widget",
@@ -1447,80 +1447,6 @@
                 "source": "https://github.com/FortAwesome/Font-Awesome/tree/v4.7.0"
             },
             "time": "2016-10-24T15:52:54+00:00"
-        },
-        {
-            "name": "foxy/foxy",
-            "version": "v1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fxpio/foxy.git",
-                "reference": "f9b17ec6701413a17358af21f47a35f2dc690616"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fxpio/foxy/zipball/f9b17ec6701413a17358af21f47a35f2dc690616",
-                "reference": "f9b17ec6701413a17358af21f47a35f2dc690616",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1|^2.0",
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "composer/composer": "^1.5.0|^2.0.0"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Foxy\\Foxy",
-                "branch-alias": {
-                    "dev-1.1": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Foxy\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Pluchino",
-                    "email": "francois.pluchino@gmail.com"
-                }
-            ],
-            "description": "Fast, reliable, and secure NPM/Yarn bridge for Composer",
-            "homepage": "https://github.com/fxpio/foxy",
-            "keywords": [
-                "Bridge",
-                "asset",
-                "composer",
-                "dependency manager",
-                "nodejs",
-                "npm",
-                "package",
-                "yarn"
-            ],
-            "support": {
-                "issues": "https://github.com/fxpio/foxy/issues",
-                "source": "https://github.com/fxpio/foxy/tree/v1.1.2"
-            },
-            "funding": [
-                {
-                    "url": "https://paypal.me/francoispluchino",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/francoispluchino",
-                    "type": "github"
-                }
-            ],
-            "time": "2021-08-09T16:18:51+00:00"
         },
         {
             "name": "imagine/imagine",
