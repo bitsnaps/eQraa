@@ -28,7 +28,7 @@
         "mpdf/mpdf": "^8.0",
         "dmstr/yii2-adminlte-asset": "^2.6",
         "miloschuman/yii2-highcharts-widget": "^9.0",
-        "philippfrenzel/yii2fullcalendar": "3.6.7",
+        "philippfrenzel/yii2fullcalendar": "^3.6.7",
         "arogachev/yii2-excel": "^0.1.1",
         "fedemotta/yii2-widget-datatables": "^1.3"
     },
